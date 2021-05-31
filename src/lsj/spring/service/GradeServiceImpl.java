@@ -1,5 +1,9 @@
 package lsj.spring.service;
 
+
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +38,36 @@ public class GradeServiceImpl implements GradeService {
 		gd.setTot(tot);
 		gd.setAvg(avg);
 		gd.setGrd(grd.charAt(0));
+	}
+
+	@Override
+	public void readAllGrade() {
+		StringBuffer sb = new StringBuffer();
+		List<Grade> gds = gdao.selectAllGrade();
+		for (Grade gd: gds) {
+			sb.append(gd);
+			System.out.println(gd);
+		}		
+	}
+
+	@Override
+	public void readOneGrade(int gno) {
+		Grade gd = gdao.selectOneGrade(gno);
+		System.out.println(gd);
+	}
+
+	@Override
+	public void modifyGrade() {
+		Grade gd = new Grade(null, 76,64,66);
+		gd.setSjno("3");
+		computeGrade(gd);
+		
+		gdao.updateGrade(gd);
+	}
+
+	@Override
+	public void removeGrade() {
+		gdao.removeGrade(5);
 	}
 
 }

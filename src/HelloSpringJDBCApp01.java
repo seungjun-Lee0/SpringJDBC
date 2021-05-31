@@ -35,6 +35,19 @@ public class HelloSpringJDBCApp01 {
 		
 		GradeService gsrv = (GradeService) ctx.getBean("gsrv");
 		
-		gsrv.newGrade();
+		// 성적 데이터 생성 후 디비에 저장
+		// gsrv.newGrade();
+		
+		// 성적 데이터 조회
+		//gsrv.readAllGrade();
+		
+		// 성적 데이터 상세 조회
+		//gsrv.readOneGrade(3);
+		
+		// 성적 데이터 수정
+		// gsrv.modifyGrade();
+		
+		// 성적 데이트 삭제
+		gsrv.removeGrade();
 	}
 }
