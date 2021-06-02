@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="grade">
+
+
+	<insert id="insertGrade" statementType="PREPARED"
+		parameterType="lsj.spring.vo.Grade">
+		insert into sungjuk (name,kor,eng,mat,tot,mean,grd)
+		values ( #{name}, #{kor}, #{eng}, #{mat}, #{tot}, #{avg}, #{grd})
+	</insert>
+	
+	<select id="selectGrade" statementType="PREPARED"
+		resultType="lsj.spring.vo.Grade">
+		select sjno, name, kor, eng, mat, regdate
+		from sungjuk order by sjno desc
+		</select>
+		
+	<select id="selectOneGrade" statementType="PREPARED"
+		parameterType="Integer"
+		resultType="lsj.spring.vo.Grade">
+		select * from sungjuk where sjno = #{sjno}
+		</select>
+		
+		<update id="updateGrade" statementType="PREPARED"
+			parameterType="lsj.spring.vo.Grade">
+			update sungjuk set kor=#{kor}, eng=#{eng}, mat=#{mat},
+			tot=#{tot}, mean=#{avg}, grd=#{grd} where sjno=#{sjno}
+		</update>
+		<delete id="deleteGrade" statementType="PREPARED"
+		parameterType="Integer">
+		delete from sungjuk where sjno = #{sjno}
+		
+		
+		</delete>
+
+
+</mapper>

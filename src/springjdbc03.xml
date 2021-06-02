@@ -60,7 +60,7 @@ p:password="bigdata2020" />
 <bean id="sqlSessionFactory" 
 	class="org.mybatis.spring.SqlSessionFactoryBean"
 	p:dataSource-ref="dbcpDataSource"
-	p:mapperLocations="classpath:mybatis3/GradeMapper.xml"/>
+	p:mapperLocations="classpath:mybatis3/*Mapper.xml"/>
 
 
 <!--  myBatis 설정 #2 -->
